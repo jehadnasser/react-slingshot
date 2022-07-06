@@ -17,11 +17,13 @@ jobs:
   test:
     executor: main-executor
     steps:
+      - checkout
       - run: npm run test
 
   analyze:
     executor: main-executor
-    steps: 
+    steps:
+      - checkout
       - run: npm audit
 
 
