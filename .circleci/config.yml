@@ -5,14 +5,13 @@ executors:
     docker:
       - image: cimg/node:18.4.0
 
-working_directory: ~/react-slingshot
+working_directory: ./..
 
 jobs:
   build:
     executor: main-executor
     steps:
-      - checkout:
-          path: ~/react-slingshot
+      - checkout
       - run: npm run lint
 
   test:
