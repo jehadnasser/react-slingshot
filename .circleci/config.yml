@@ -18,7 +18,8 @@ jobs:
 
   analyze:
     executor: cimg-executor
-    steps: npm audit
+    steps: 
+      - run: npm audit
 
 
 workflows:
