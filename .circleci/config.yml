@@ -5,7 +5,7 @@ executors:
     docker:
       - image: cimg/node:18.4.0
 
-working_directory: ~/project
+# working_directory: ~/project
 
 jobs:
   build:
@@ -16,6 +16,7 @@ jobs:
       - run: pwd
       - run: echo ${CIRCLE_BUILD_URL}
       - run: echo ${CIRCLE_WORKING_DIRECTORY}
+      - run: npm install
       - run: npm i -g eslint eslint-watch
       # - run: npm run lint
 
