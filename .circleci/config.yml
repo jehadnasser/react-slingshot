@@ -11,7 +11,9 @@ jobs:
   build:
     executor: main-executor
     steps:
+      - run: ls
       - checkout
+      - run: ls
       - run: echo ${CIRCLE_BUILD_URL}
       - run: echo ${CIRCLE_WORKING_DIRECTORY}
       - run: npm run lint
