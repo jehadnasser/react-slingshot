@@ -3,7 +3,7 @@ version: 2.1
 executors:
   main-executor:
     docker:
-      - image: cimg/node:18.4.0
+      - image: circleci/node:13.8.0
 
 # working_directory: ~/project
 
@@ -11,14 +11,9 @@ jobs:
   build:
     executor: main-executor
     steps:
-      - run: pwd
       - checkout
-      - run: pwd
-      - run: echo ${CIRCLE_BUILD_URL}
-      - run: echo ${CIRCLE_WORKING_DIRECTORY}
-      - run: npm install --force
-      - run: npm i -g eslint eslint-watch
-      # - run: npm run lint
+      - run: npm install
+      - run: npm run lint
 
   test:
     executor: main-executor
