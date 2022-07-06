@@ -5,13 +5,15 @@ executors:
     docker:
       - image: cimg/node:18.4.0
 
-working_directory: .
+working_directory: ./..
 
 jobs:
   build:
     executor: main-executor
     steps:
       - checkout
+      - run: echo ${CIRCLE_BUILD_URL}
+      - run: echo ${CIRCLE_WORKING_DIRECTORY}
       - run: npm run lint
 
   test:
