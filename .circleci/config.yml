@@ -16,6 +16,7 @@ jobs:
       - run: ls
       - run: echo ${CIRCLE_BUILD_URL}
       - run: echo ${CIRCLE_WORKING_DIRECTORY}
+      - run: npm i -g eslint eslint-watch
       - run: npm run lint
 
   test:
