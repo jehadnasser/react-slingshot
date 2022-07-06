@@ -1,0 +1,32 @@
+version: 2.1
+
+executors:
+  main-executor:
+    docker:
+      - image: cimg/node:18.4.0
+
+jobs:
+  build:
+    executor: main-executor
+    steps:
+      - run: npm run lint
+
+  test:
+    executor: main-executor
+    steps:
+      - run: npm run test
+
+  analyze:
+    executor: main-executor
+    steps: 
+      - run: npm audit
+
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - build
+      - test:
+          requires: [build]
+      - analyze:
+          requires: [test]
